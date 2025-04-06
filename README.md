@@ -1,8 +1,67 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# Keyless Note App
 
-## Getting Started
+A brutalist-style note-taking application built with modern web technologies.
 
-First, run the development server:
+## 📋 Project Overview
+
+Keyless Note App is a simple yet powerful note-taking application with a distinctive brutalist design. It combines modern web technologies to provide a seamless user experience for creating, reading, updating, and deleting notes.
+
+## 🛠️ Technology Stack
+
+- **Frontend**: Next.js 15 with React 19
+- **UI Components**:
+  - React components
+  - Web Components built with Lit
+- **Styling**: TailwindCSS 4
+- **Database**: SQLite (via better-sqlite3)
+- **Notifications**: react-toastify
+- **API Optimization**: SWR for data fetching
+
+## 🗂️ Project Structure
+keyless-note-app/
+├── components/           # React components
+├── db/                   # Database operations
+├── lib/                  # Utility functions
+├── pages/                # Next.js pages and API routes
+│   ├── api/              # Backend API endpoints
+│   └── ...               # Frontend pages
+├── public/               # Static assets
+├── styles/               # Global styles
+├── types/                # TypeScript type definitions
+└── web-components/       # Lit-based web components
+
+## 🔑 Key Features
+
+- Create, read, update, and delete notes
+- Responsive brutalist design
+- Real-time updates with optimistic UI
+- Server-side rendering with Next.js
+- Custom Web Components integration with React
+- SQLite database for data persistence
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js 18+ or Bun
+- npm, yarn, pnpm, or bun
+
+### Installation
+
+1. Clone the repository
+2. Install dependencies:
+
+```bash
+npm install
+# or
+yarn
+# or
+pnpm install
+# or
+bun install
+```
+
+3. Run the development server:
 
 ```bash
 npm run dev
@@ -14,27 +73,63 @@ pnpm dev
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4. Open http://localhost:3000 in your browser
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+### Production Deployment
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+Build the application for production:
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+```bash
+npm run build
+npm start
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+For PM2 deployment:
 
-## Learn More
+```bash
+npm run build
+pm2 start npm --name "keyless-note-app" -- start
+```
 
-To learn more about Next.js, take a look at the following resources:
+## 🧩 Architecture
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
+### Frontend
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+The application uses Next.js with React for the frontend. The main page ( pages/index.tsx ) displays a list of notes and provides functionality to add, edit, and delete notes.
 
-## Deploy on Vercel
+### Web Components
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The application uses Lit to create reusable web components. The note-card component is a key example, providing a consistent UI for displaying notes across the application.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+### API Routes
+
+The application uses Next.js API routes for backend functionality:
+
+- GET /api/notes : Retrieve all notes
+- POST /api/notes : Create a new note
+- PUT /api/notes/[id] : Update a specific note
+- DELETE /api/notes/[id] : Delete a specific note
+
+### Database
+
+SQLite is used for data persistence, with operations defined in the db/ directory.
+
+## 🧪 Development
+
+### Code Style
+
+The project uses ESLint and TypeScript for code quality and type safety.
+
+# Next steps
+
+- [ ] Add user authentication
+- [ ] Implement note sharing
+- [ ] Implement note Markdown support
+- [ ] Add note tags
+- [ ] Add note search
+- [ ] Add note history
+- [ ] Add note versioning
+
+## 📝 License
+
+This project is licensed under the MIT License.
