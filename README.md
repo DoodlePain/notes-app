@@ -6,6 +6,11 @@ A brutalist-style note-taking application built with modern web technologies.
 
 Keyless Note App is a simple yet powerful note-taking application with a distinctive brutalist design. It combines modern web technologies to provide a seamless user experience for creating, reading, updating, and deleting notes.
 
+## 🔗 Live Demo
+
+You can try out the live demo of Keyless Note App [here](https://keyless.frontends.link/).
+The demo is hosted on private Linux server and is available for testing.
+
 ## 🛠️ Technology Stack
 
 - **Frontend**: Next.js 15 with React 19
@@ -21,17 +26,17 @@ Keyless Note App is a simple yet powerful note-taking application with a distinc
 
 ```md
 keyless-note-app/
-├── components/           # React components
-├── db/                   # Database operations
-├── lib/                  # Utility functions
-├── pages/                # Next.js pages and API routes
-│   ├── api/              # Backend API endpoints
-│   └── ...               # Frontend pages
-├── public/               # Static assets
-├── styles/               # Global styles
-├── types/                # TypeScript type definitions
-└── web-components/       # Lit-based web components
-│   └── icons             # Web components icons
+├── components/ # React components
+├── db/ # Database operations
+├── lib/ # Utility functions
+├── pages/ # Next.js pages and API routes
+│ ├── api/ # Backend API endpoints
+│ └── ... # Frontend pages
+├── public/ # Static assets
+├── styles/ # Global styles
+├── types/ # TypeScript type definitions
+└── web-components/ # Lit-based web components
+│ └── icons # Web components icons
 ```
 
 ## 🔑 Key Features
