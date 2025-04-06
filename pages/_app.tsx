@@ -1,6 +1,6 @@
 import { greetings } from "@/lib/greetings";
 import "../styles/globals.css";
-import "../styles/loader.css"; // Add this line
+import "../styles/loader.css";
 import type { AppProps } from "next/app";
 import { Inter } from "next/font/google";
 import { useEffect } from "react";

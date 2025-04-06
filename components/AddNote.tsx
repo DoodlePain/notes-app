@@ -34,7 +34,6 @@ export const AddNote: React.FC<AddNoteProps> = ({ onSubmit }) => {
     if (data.error) {
       toast.error(data.error || "Error adding note");
     }
-    console.log("🚀 ~ submitNote ~ response:", data);
     if (data.success) {
       toast.success("Note added successfully");
       return true;
