@@ -4,8 +4,12 @@ import Input from "./Input";
 interface FormProps {
   title: string;
   content: string;
-  onTitleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  onContentChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onTitleChange: (
+    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => void;
+  onContentChange: (
+    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => void;
 }
 
 export default function Form({

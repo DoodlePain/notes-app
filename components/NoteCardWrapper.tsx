@@ -1,6 +1,5 @@
 import React from "react";
 import dynamic from "next/dynamic";
-import { NoteData } from "@/types/notes";
 
 interface NoteCardProps {
   id: string;

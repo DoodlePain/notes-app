@@ -31,30 +31,33 @@ const putHandler = (req: NextApiRequest, res: NextApiResponse) => {
     updateNote(noteId, sanitizedNote);
     res.status(200).json({ success: true });
     return;
-  } catch (error: any) {
-    console.error(`🚀 [PUT ${req.url}] Error : ${error.message}`);
+  } catch (error: Error | unknown) {
+    const errorMessage =
+      error instanceof Error ? error.message : "Unknown error";
+    console.error(`🚀 [PUT ${req.url}] Error : ${errorMessage}`);
     return res
       .status(400)
-      .json({ success: false, error: error.message || "Invalid note" });
+      .json({ success: false, error: errorMessage || "Invalid note" });
   }
 };
 
 // DELETE /api/notes
-
 const deleteHandler = (req: NextApiRequest, res: NextApiResponse) => {
   try {
     const noteId = req.query.id as string;
-    const userNote = req.body;
+    // Removed unused userNote variable
     if (!noteId) {
       throw new Error("Invalid note id");
     }
     deleteNote(noteId);
     res.status(200).json({ success: true });
     return;
-  } catch (error: any) {
-    console.error(`🚀 [DELETE ${req.url}] Error : ${error.message}`);
+  } catch (error: Error | unknown) {
+    const errorMessage =
+      error instanceof Error ? error.message : "Unknown error";
+    console.error(`🚀 [DELETE ${req.url}] Error : ${errorMessage}`);
     return res
       .status(400)
-      .json({ success: false, error: error.message || "Invalid note" });
+      .json({ success: false, error: errorMessage || "Invalid note" });
   }
 };

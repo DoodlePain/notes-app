@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { toast } from "react-toastify";
-import Input from "./Input";
 import Form from "./Form";
 
 interface AddNoteProps {
@@ -11,11 +10,15 @@ export const AddNote: React.FC<AddNoteProps> = ({ onSubmit }) => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
 
-  const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleTitleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setTitle(e.target.value);
   };
 
-  const handleContentChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleContentChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setContent(e.target.value);
   };
 

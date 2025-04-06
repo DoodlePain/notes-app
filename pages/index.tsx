@@ -1,5 +1,4 @@
 import useSWR from "swr";
-import "@/styles/loader.css";
 import { NoteData } from "@/types/notes";
 import { useMemo, useState } from "react";
 import { AddNote } from "@/components/AddNote";
@@ -24,7 +23,16 @@ export default function Home() {
     },
   });
 
-  const notes: NoteData[] = data?.success && data?.notes ? data.notes : [];
+  const notes: NoteData[] = useMemo(() => {
+    // Sort notes by updatedAt
+    if (data?.success && data?.notes) {
+      return data.notes.sort((a: NoteData, b: NoteData) => {
+        return (
+          new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime()
+        );
+      });
+    }
+  }, [data]);
 
   const refreshNotes = () => {
     setLoading(true);

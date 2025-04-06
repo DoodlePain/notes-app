@@ -3,7 +3,9 @@ import React from "react";
 interface InputProps {
   label: string;
   value: string;
-  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange: (
+    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => void;
   isTextArea?: boolean;
 }
 
@@ -19,9 +21,7 @@ export default function Input({
       {isTextArea ? (
         <textarea
           value={value}
-          onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
-            onChange(e as any)
-          }
+          onChange={onChange}
           className="w-full border-2 border-black p-2 bg-white h-40"
           placeholder="Note content"
         />

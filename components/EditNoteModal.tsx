@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { toast } from "react-toastify";
 import { NoteData } from "@/types/notes";
-import Input from "./Input";
 import Form from "./Form";
 
 interface EditNoteModalProps {
@@ -28,11 +27,15 @@ export default function EditNoteModal({
     }
   }, [note]);
 
-  const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleTitleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setTitle(e.target.value);
   };
 
-  const handleContentChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleContentChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setContent(e.target.value);
   };
 

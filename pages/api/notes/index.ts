@@ -47,11 +47,13 @@ const postHandler = (req: NextApiRequest, res: NextApiResponse) => {
         return;
       }
     }
-  } catch (error: any) {
-    console.error(`🚀 [POST ${req.url}] Error : ${error.message}`);
+  } catch (error: Error | unknown) {
+    const errorMessage =
+      error instanceof Error ? error.message : "Unknown error";
+    console.error(`🚀 [POST ${req.url}] Error : ${errorMessage}`);
     return res
       .status(400)
-      .json({ success: false, error: error.message || "Invalid note" });
+      .json({ success: false, error: errorMessage || "Invalid note" });
   }
 };
 
