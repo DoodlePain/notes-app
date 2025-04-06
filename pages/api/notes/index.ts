@@ -24,6 +24,11 @@ export default function handler(
 const getHandler = (req: NextApiRequest, res: NextApiResponse) => {
   const notes = findAllNotes();
   if (notes) {
+    notes.sort((a, b) => {
+      if (a.updatedAt > b.updatedAt) return -1;
+      if (a.updatedAt < b.updatedAt) return 1;
+      return 0;
+    });
     // Added delay to simulate a slow API
     setTimeout(() => {
       res.status(200).json({ success: true, notes });

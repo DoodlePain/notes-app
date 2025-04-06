@@ -24,14 +24,7 @@ export default function Home() {
   });
 
   const notes: NoteData[] = useMemo(() => {
-    // Sort notes by updatedAt
-    if (data?.success && data?.notes) {
-      return data.notes.sort((a: NoteData, b: NoteData) => {
-        return (
-          new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime()
-        );
-      });
-    }
+    return data?.success && data?.notes ? data.notes : [];
   }, [data]);
 
   const refreshNotes = () => {

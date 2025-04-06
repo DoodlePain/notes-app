@@ -106,7 +106,7 @@ export class NoteCard extends LitElement {
           </div>
         </div>
         <p
-          class="text-black mb-4 whitespace-pre-wrap border-l-4 border-black pl-3"
+          class="text-black mb-4 whitespace-normal border-l-4 border-black pl-3"
         >
           ${this.content}
         </p>
