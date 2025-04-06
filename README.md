@@ -18,6 +18,8 @@ Keyless Note App is a simple yet powerful note-taking application with a distinc
 - **API Optimization**: SWR for data fetching
 
 ## 🗂️ Project Structure
+
+```md
 keyless-note-app/
 ├── components/           # React components
 ├── db/                   # Database operations
@@ -29,6 +31,7 @@ keyless-note-app/
 ├── styles/               # Global styles
 ├── types/                # TypeScript type definitions
 └── web-components/       # Lit-based web components
+```
 
 ## 🔑 Key Features
 
