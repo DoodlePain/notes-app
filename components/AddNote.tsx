@@ -30,13 +30,16 @@ export const AddNote: React.FC<AddNoteProps> = ({ onSubmit }) => {
       },
       body: JSON.stringify({ title, content }),
     });
-    if (!response.ok) {
-      throw new Error("Failed to add note");
-    }
     const data = await response.json();
+    if (data.error) {
+      toast.error(data.error || "Error adding note");
+    }
+    console.log("🚀 ~ submitNote ~ response:", data);
     if (data.success) {
       toast.success("Note added successfully");
+      return true;
     }
+    return false;
   };
 
   const validateForm = () => {
@@ -53,7 +56,8 @@ export const AddNote: React.FC<AddNoteProps> = ({ onSubmit }) => {
 
   const handleSubmit = async () => {
     if (validateForm()) {
-      await submitNote();
+      const result = await submitNote();
+      if (!result) return;
       setTitle("");
       setContent("");
       onSubmit();

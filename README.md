@@ -31,6 +31,7 @@ keyless-note-app/
 ├── styles/               # Global styles
 ├── types/                # TypeScript type definitions
 └── web-components/       # Lit-based web components
+│   └── icons             # Web components icons
 ```
 
 ## 🔑 Key Features

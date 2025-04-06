@@ -1,3 +1,4 @@
+import { MAX_CONTENT_LENGTH } from "@/lib/const";
 import React from "react";
 
 interface InputProps {
@@ -15,16 +16,28 @@ export default function Input({
   onChange,
   isTextArea,
 }: InputProps) {
+  const wordCount = value.trim() ? value.trim().length : 0;
+  const isOverLimit = wordCount > MAX_CONTENT_LENGTH;
+
   return (
     <div className="mb-4">
       <label className="block font-bold mb-2 uppercase text-sm">{label}</label>
       {isTextArea ? (
-        <textarea
-          value={value}
-          onChange={onChange}
-          className="w-full border-2 border-black p-2 bg-white h-40"
-          placeholder="Note content"
-        />
+        <div className="relative">
+          <textarea
+            value={value}
+            onChange={onChange}
+            className="w-full border-2 border-black p-2 bg-white h-40"
+            placeholder="Note content"
+          />
+          <div
+            className={`absolute bottom-2 right-3 text-xs text-gray-500 ${
+              isOverLimit ? "text-red-400" : ""
+            }`}
+          >
+            {wordCount}/{MAX_CONTENT_LENGTH}
+          </div>
+        </div>
       ) : (
         <input
           type="text"
